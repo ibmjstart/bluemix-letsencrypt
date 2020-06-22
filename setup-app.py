@@ -30,7 +30,7 @@ def get_cert(appname, domain, certname):
     It then writes the certificate to a file in the current working
     directory with the same name that the certificate had on the server.
     """
-    command = "ibmcloud --quiet cf ssh %s -c \"cat ~/app/conf/live/%s/%s\"" % (appname, domain, certname)
+    command = "ibmcloud cf --quiet ssh %s -c \"cat ~/app/conf/live/%s/%s\"" % (appname, domain, certname)
     print("Running: %s" % command)
     certfile = open(certname,"w+")
     return Popen(command, shell=True, stdout=certfile)
